@@ -1,141 +1,28 @@
+{% assign projects = site.projects | sort: 'order' | reverse %}
 <section class="no-padding" id="portfolio">
     <div class="container-fluid">
         <div class="row no-gutter">
+            {% for project in projects %}
             <div class="col-lg-4 col-sm-6">
-                <a href="{{ site.baseurl }}/projects/yb_move" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/yb_move/preview_yb_move.png" class="img-responsive" alt="">
+                {% if project.linked %}
+                <a href="{{ site.baseurl }}{{project.id}}" class="portfolio-box">
+                {% else %}
+                <a href="#portfolio" class="portfolio-box">
+                {% endif %}
+                    <img src="{{ site.baseurl }}/img/portfolio/{{project.shortcode}}/preview_{{project.shortcode}}.png" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
-                                Android App
+                                {{project.category}}
                             </div>
                             <div class="project-name">
-                                YB Move
+                                {{project.name}}
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/nct_buses/preview_nct_buses.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Android App
-                            </div>
-                            <div class="project-name">
-                                NCT Buses
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/mobile_dorset/preview_mobile_dorset.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Community
-                            </div>
-                            <div class="project-name">
-                                Mobile Dorset
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/steam_game_picker/preview_steam_game_picker.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Android App
-                            </div>
-                            <div class="project-name">
-                                Steam Game Picker
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/colourless/preview_colourless.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                iOS App
-                            </div>
-                            <div class="project-name">
-                                Colourless
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/fairline/preview_fairline.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                iOS App
-                            </div>
-                            <div class="project-name">
-                                Fairline Boats Explorer
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/vg_inventory/preview_vg_inventory.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Android App
-                            </div>
-                            <div class="project-name">
-                                VG Inventory
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/lush_emotional_brilliance/preview_lush_emotional_brilliance.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Android App
-                            </div>
-                            <div class="project-name">
-                                Emotional Brilliance
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#" class="portfolio-box">
-                    <img src="{{ site.baseurl }}/img/portfolio/exante_diet/preview_exante_diet.png" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                iOS App
-                            </div>
-                            <div class="project-name">
-                                Exante Diet Tracker
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

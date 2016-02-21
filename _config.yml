@@ -10,3 +10,16 @@ github_username: "Numan1617"
 
 # Build settings
 markdown: kramdown
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+defaults:
+  -
+    scope:
+      type: projects
+    values:
+      layout: project
+      linked: false
